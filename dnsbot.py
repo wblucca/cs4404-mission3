@@ -10,7 +10,7 @@ RAND_MIN_LEN = 7
 RAND_MAX_LEN = 15
 
 CCIP = '10.4.18.1'  # C&C Server
-QUERY_DELAY = 60  # In seconds
+QUERY_DELAY = 3  # In seconds
 
 lastcommand = ''  # The previous command received
 
