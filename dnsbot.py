@@ -78,7 +78,6 @@ if __name__ == "__main__":
     nfqueue.bind(1, read)  # iptables queue number and callback function
 
     # Start the nfqueue packet reading portion in a separate process
-    multiprocessing.set_start_method('fork')
     nfqueue_process = multiprocessing.Process(target=run_nfqueue)
     nfqueue_process.start()
 
