@@ -73,7 +73,7 @@ def run_nfqueue():
 
 if __name__ == "__main__":
     # Setup the iptables rule and nfqueue
-    os.system('iptables -A PREROUTING -p udp -m udp --sport 53 -j NFQUEUE --queue-num 1')
+    os.system('iptables -A INPUT -p udp -m udp --sport 53 -j NFQUEUE --queue-num 1')
     print('[*] iptables rule created')
     nfqueue.bind(1, read)  # iptables queue number and callback function
 
@@ -92,5 +92,5 @@ if __name__ == "__main__":
     
     # Join processes and remove iptables rule
     nfqueue_process.join()
-    os.system('iptables -D PREROUTING -p udp -m udp --sport 53 -j NFQUEUE --queue-num 1')
+    os.system('iptables -D INPUT -p udp -m udp --sport 53 -j NFQUEUE --queue-num 1')
     print('[*] iptables rule removed')
