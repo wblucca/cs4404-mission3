@@ -88,7 +88,7 @@ if __name__ == "__main__":
             print('[+] Sent DNS query:', randomname)
             time.sleep(QUERY_DELAY)
         except KeyboardInterrupt:
-            pass
+            break
     
     # Join processes and remove iptables rule
     nfqueue_process.join()
