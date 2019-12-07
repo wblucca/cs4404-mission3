@@ -1,6 +1,6 @@
 #! /usr/bin/env python2.7
 
-import os, re, csv, random
+import os, sys, re, csv
 
 domainchars = 'abcdefghijklmnopqrstuvwxyz0123456789'
 charscount = {}
@@ -35,7 +35,6 @@ if __name__ == "__main__":
         for row in readCSV:
             # Get domain name minus all characters after first '.'
             domain = re.sub(r'\..*', '', row[1])
-            #domain = random.choice(domainchars)
             for c in domain:
                 if c in domainchars:
                     totalchars += 1
