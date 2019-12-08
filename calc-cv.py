@@ -23,9 +23,11 @@ def gettxt(domain):
 
 
 if __name__ == "__main__":
+    # Check args
     if len(sys.argv) == 1:
         print('\nUsage:  calc-cv.py numsites [--txt]\n')
         exit(1)
+
     # Download CSV data from Alexa
     if not getcsv():
         print('Failed to get Alexa 1 million list')
