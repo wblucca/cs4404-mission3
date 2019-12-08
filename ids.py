@@ -102,10 +102,11 @@ def run_checks(dns):
     else:
         cv = 0
 
+    # Check for malicious data
     if average > DOMAIN_MIN_AVG and cv < DOMAIN_MAX_CV:
         print("Average: "+str(average) + " CV: "+str(cv))
         print('Bad domain CV, DNS compromised')
-        # blocked_ips.append(dns.ip)
+        blocked_ips.append(dns.ip)
 
 
 def read(packet):
@@ -119,6 +120,8 @@ def read(packet):
     
     # If the packet is a DNS Resource Record (DNS reply)
     if scapy_pkt.haslayer(DNSRR):
+        print('[+] Got DNS packet')
+
         try:
             # Get DNS data
 	        domain = scapy_pkt[DNS].qd.qname
@@ -126,7 +129,7 @@ def read(packet):
             new_reply = Reply(domain, record)
 
             # Create DNS server object if this reply is from a new server
-            if packet_ip not in DNSServers:
+            if packet_ip not in dns_servers:
                 new_dns_server = DNSServer(packet_ip)
                 dns_servers[packet_ip] = new_dns_server
             dns_server = dns_servers[packet_ip]
@@ -134,12 +137,14 @@ def read(packet):
             # Add the reply object
             dns_server.replies.append(new_reply)
 
+            print('[+] Domain: "' + str(domain) + '"   IP: "' + str(packet_ip) + '"')
+
             # Remove everything after first '.' and total up the characters
             domain = re.sub(r'\..*', '', domain)
             count_letters(packet_ip, domain)
 
             # Verify this DNS server
-            runChecks(dns_server)
+            run_checks(dns_server)
 
         except IndexError:
             # Not UDP packet, this can be IPerror/UDPerror packets
