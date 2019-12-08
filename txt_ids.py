@@ -6,16 +6,10 @@ import re
 from scapy.all import *
 from netfilterqueue import NetfilterQueue
 
-DOMAIN_CHARS = 'abcdefghijklmnopqrstuvwxyz1234567890'
 B64_CHARS = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789/+'
 NUM_ASCII = 256
 # Number of replies to hold on to for analysis
 MAX_REPLIES = 10
-
-# Minimum average to block for failing random analysis
-DOMAIN_MIN_AVG = 5
-# Maximum CV to count as random analysis failure
-DOMAIN_MAX_CV = 0.4
 
 # Minimum average to block for failing random analysis
 TXT_MIN_AVG = 3
@@ -89,13 +83,13 @@ def run_checks(dns):
     # Now check if the charbins are unreasonable (i.e. randomized characters)
     totalchars = 0
     totalsqrdiff = 0
-    for letter in DOMAIN_CHARS:
+    for letter in B64_CHARS:
         totalchars += dns.charbin[letter]
-    average = totalchars / float(len(DOMAIN_CHARS))
+    average = totalchars / float(len(B64_CHARS))
     
-    for letter in DOMAIN_CHARS:
+    for letter in B64_CHARS:
         totalsqrdiff += (dns.charbin[letter] - average) ** 2
-    stddev = (totalsqrdiff / (len(DOMAIN_CHARS) - 1)) ** 0.5
+    stddev = (totalsqrdiff / (len(B64_CHARS) - 1)) ** 0.5
 
     if average != 0:
         cv = stddev / average
@@ -103,7 +97,7 @@ def run_checks(dns):
         cv = 0
 
     # Check for malicious data
-    if average > DOMAIN_MIN_AVG and cv < DOMAIN_MAX_CV:
+    if average > TXT_MIN_AVG and cv < TXT_MAX_CV:
         print("Average: "+str(average) + " CV: "+str(cv))
         print('Bad domain CV, DNS compromised')
         blocked_ips.append(dns.ip)
@@ -137,11 +131,10 @@ def read(packet):
             # Add the reply object
             dns_server.replies.append(new_reply)
 
-            print('[+] Domain: "' + str(domain) + '"   IP: "' + str(packet_ip) + '"')
+            print('[+] TXT: "' + str(record) + '"   IP: "' + str(packet_ip) + '"')
 
             # Remove everything after first '.' and total up the characters
-            domain = re.sub(r'\..*', '', domain)
-            count_letters(packet_ip, domain)
+            count_letters(packet_ip, record)
 
             # Verify this DNS server
             run_checks(dns_server)

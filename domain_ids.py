@@ -7,7 +7,6 @@ from scapy.all import *
 from netfilterqueue import NetfilterQueue
 
 DOMAIN_CHARS = 'abcdefghijklmnopqrstuvwxyz1234567890'
-B64_CHARS = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789/+'
 NUM_ASCII = 256
 # Number of replies to hold on to for analysis
 MAX_REPLIES = 10
@@ -16,11 +15,6 @@ MAX_REPLIES = 10
 DOMAIN_MIN_AVG = 5
 # Maximum CV to count as random analysis failure
 DOMAIN_MAX_CV = 0.4
-
-# Minimum average to block for failing random analysis
-TXT_MIN_AVG = 3
-# Maximum CV to count as random analysis failure
-TXT_MAX_CV = 0.4
 
 blocked_ips = []
 dns_servers = {}
