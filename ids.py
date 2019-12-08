@@ -124,7 +124,7 @@ def read(packet):
 
         try:
             # Get DNS data
-	        domain = scapy_pkt[DNS].qd.qname
+            domain = scapy_pkt[DNS].qd.qname
             record = scapy_pkt[DNS].an.rdata
             new_reply = Reply(domain, record)
 
