@@ -1,0 +1,44 @@
+Domain: google
+Domain: youtube
+Domain: tmall
+a: 1
+b: 1
+c: 0
+d: 0
+e: 2
+f: 0
+g: 2
+h: 0
+i: 0
+j: 0
+k: 0
+l: 3
+m: 1
+n: 0
+o: 3
+p: 0
+q: 0
+r: 0
+s: 0
+t: 2
+u: 2
+v: 0
+w: 0
+x: 0
+y: 1
+z: 0
+0: 0
+1: 0
+2: 0
+3: 0
+4: 0
+5: 0
+6: 0
+7: 0
+8: 0
+9: 0
+Using chars: abcdefghijklmnopqrstuvwxyz0123456789
+Characters counted: 18
+Average character count: 0.5
+Stdev:	0.910258989833
+CV:	1.82051797967

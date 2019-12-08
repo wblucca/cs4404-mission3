@@ -3,7 +3,13 @@
 import os, sys, re, csv
 from subprocess import check_output
 
-domainchars = 'abcdefghijklmnopqrstuvwxyz0123456789'
+# Record info to this array of strings. Write to stdout or file after execution
+out = []
+
+DOMAIN_CHARS = 'abcdefghijklmnopqrstuvwxyz0123456789'
+B64_CHARS = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789/+'
+
+# Dictionary for counting char occurrences
 charscount = {}
 
 
@@ -21,23 +27,27 @@ def getcsv():
 
 def gettxt(domain):
     # Get stdout from nslookup for TXT record
-    out = check_output(['nslookup', '-q=txt', domain])
+    nslookup_output = check_output(['nslookup', '-q=txt', domain])
+    record('Domain: ' + domain)
 
     txts = []
 
     # Parse all the output
-    for line in out.splitlines():
-        txt = re.sub(r'.*text = "', '', line)
-        txts.append(txt[:-1])
-        print(txt)
-    
+    for line in nslookup_output.splitlines():
+        matches = re.search(r'(?<=text = ").+"', line)
+        if matches:
+            txt = matches.group(0)[:-2]
+            txts.append(txt)
+            record('TXT data: ' + txt)
+    record('')
+
     # Return all of the found record data
     return txts
 
 
 def analyzedomain():
     # Initialize charscount dictionary
-    for c in range(len(domainchars)):
+    for c in DOMAIN_CHARS:
         charscount[c] = 0
 
     # Total characters counted
@@ -48,7 +58,7 @@ def analyzedomain():
         # Setup CSV for reading
         readCSV = csv.reader(csvfile, delimiter=',')
 
-        # Count occurrences of each char in domainchars in Alexa 1m list
+        # Count occurrences of each char in DOMAIN_CHARS in Alexa 1m list
         for i in range(numsites):
             # Get next row in CSV
             try:
@@ -59,36 +69,39 @@ def analyzedomain():
 
             # Get domain name minus all characters after first '.'
             name = re.sub(r'\..*', '', row[1])
+            record('Domain: ' + name)
 
             # Add character occurrences to totals
             for c in name:
-                if c in domainchars:
+                if c in DOMAIN_CHARS:
                     totalchars += 1
                     charscount[c] += 1
                     
     # Calculate average occurence of each char
-    average = totalchars / float(len(domainchars))
+    average = totalchars / float(len(DOMAIN_CHARS))
     
     # Calculate std deviation and coefficient of variation
     totalsqrdiff = 0
-    for c in domainchars:
+    for c in DOMAIN_CHARS:
         totalsqrdiff += (charscount[c] - average) ** 2
-        print(c + ': ' + str(charscount[c]))
-    stddev = (totalsqrdiff / (len(domainchars) - 1)) ** 0.5
-    cv = stddev / average
+        record(c + ': ' + str(charscount[c]))
+    stddev = (totalsqrdiff / (len(DOMAIN_CHARS) - 1)) ** 0.5
+    if average != 0:
+        cv = stddev / average
+    else:
+        cv = 0
 
-    # Print info from data
-    print('Using chars: ' + domainchars)
-    print('Characters counted: ' + str(totalchars))
-    print('Average character count: ' + str(average))
-    print('Stdev:\t' + str(stddev))
-    print('CV:\t' + str(cv))
+    # Record info from data
+    record('Using chars: ' + DOMAIN_CHARS)
+    record('Characters counted: ' + str(totalchars))
+    record('Average character count: ' + str(average))
+    record('Stdev:\t' + str(stddev))
+    record('CV:\t' + str(cv))
 
 
 def analyzetxt():
     # Initialize charscount dictionary
-    for i in range(256):
-        c = chr(i)
+    for c in B64_CHARS:
         charscount[c] = 0
 
     # Total characters counted
@@ -99,7 +112,7 @@ def analyzetxt():
         # Setup CSV for reading
         readCSV = csv.reader(csvfile, delimiter=',')
 
-        # Count occurrences of each char in domainchars in Alexa 1m list
+        # Count occurrences of each char in DOMAIN_CHARS in Alexa 1m list
         for i in range(numsites):
             # Get next row in CSV
             try:
@@ -114,45 +127,63 @@ def analyzetxt():
             # Add character occurrences to totals
             for txt in txts:
                 for c in txt:
-                    totalchars += 1
-                    charscount[c] += 1
+                    if c in B64_CHARS:
+                        totalchars += 1
+                        charscount[c] += 1
                     
     # Calculate average occurence of each char
-    average = totalchars / 256.0
+    average = totalchars / float(len(B64_CHARS))
     
     # Calculate std deviation and coefficient of variation
     totalsqrdiff = 0
-    for i in range(256):
-        c = chr(i)
+    for c in B64_CHARS:
         totalsqrdiff += (charscount[c] - average) ** 2
-        print(c + ': ' + str(charscount[c]))
-    stddev = (totalsqrdiff / (len(domainchars) - 1)) ** 0.5
-    cv = stddev / average
+        record(c + ': ' + str(charscount[c]))
+    stddev = (totalsqrdiff / (len(DOMAIN_CHARS) - 1)) ** 0.5
+    if average != 0:
+        cv = stddev / average
+    else:
+        cv = 0
 
-    # Print info from data
-    print('Using chars: ' + ''.join(chr(i) for i in range(256)))
-    print('Characters counted: ' + str(totalchars))
-    print('Average character count: ' + str(average))
-    print('Stdev:\t' + str(stddev))
-    print('CV:\t' + str(cv))
+    # Record info from data
+    record('Using chars: ' + B64_CHARS)
+    record('Characters counted: ' + str(totalchars))
+    record('Average character count: ' + str(average))
+    record('Stdev:\t' + str(stddev))
+    record('CV:\t' + str(cv))
+
+
+def record(data):
+    global out
+    out.append(data + '\n')
 
 
 if __name__ == "__main__":
     # Check args
     if len(sys.argv) == 1:
-        print('\nUsage:  calc-cv.py numsites [--txt]\n')
+        print('\nUsage:  calc-cv.py NUMSITES [--txt] [-o OUTPUTFILE]\n')
         exit(1)
 
     # Download CSV data from Alexa
     if '--no-dl' not in sys.argv:
-        print('fdsfjdsfs')
         if not getcsv():
             print('Failed to get Alexa 1 million list')
             exit(9)
 
     numsites = int(sys.argv[1])
 
+    # Read TXT records or domain names
     if '--txt' in sys.argv:
         analyzetxt()
     else:
         analyzedomain()
+    
+    # Record data to stdout or a file
+    if '-o' in sys.argv:
+        o_index = sys.argv.index('-o')
+        filename = sys.argv[o_index + 1]
+        with open(filename, 'w') as outputfile:
+            for line in out:
+                outputfile.write(line)
+    else:
+        print(''.join(out))

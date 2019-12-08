@@ -6,32 +6,33 @@ import re
 from scapy.all import *
 from netfilterqueue import NetfilterQueue
 
+DOMAIN_CHARS = 'abcdefghijklmnopqrstuvwxyz1234567890'
+B64_CHARS = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789/+'
 
-RANDOM_CHARS = 'abcdefghijklmnopqrstuvwxyz1234567890'
-RAND_MIN_LEN = 7
-RAND_MAX_LEN = 15
+dns_servers = {}
 
-DNSServers = {}
+
 class DNSServer:
     ip = ''
     charBin = {}
     queries = []
+
     def __init__(self, ip):
         self.ip = ip
-        for letter in RANDOM_CHARS:        
+        for i in DOMAIN_CHARS:        
             self.charBin[letter] = 0
 
-class Query:
+class Reply:
     domain = ''
     record = ''
-    def __init__(self, Domain, Record):
-        self.domain = Domain
-        self.record = Record
+
+    def __init__(self, domain, record):
+        self.domain = domain
+        self.record = record
 
 
-def letterCounter(ip, name):
+def count_letters(ip, name):
     re.sub(r'\..*', '', name)
-#    re.sub(r'[/,+]','',name)
     for letter in name:
         if letter in DNSServers[ip].charBin:
             DNSServers[ip].charBin[letter] += 1
