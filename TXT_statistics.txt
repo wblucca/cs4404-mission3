@@ -1,44 +1,670 @@
-Domain: google
-Domain: youtube
-Domain: tmall
-a: 1
-b: 1
-c: 0
-d: 0
-e: 2
-f: 0
-g: 2
-h: 0
-i: 0
-j: 0
-k: 0
-l: 3
-m: 1
-n: 0
-o: 3
-p: 0
-q: 0
-r: 0
-s: 0
-t: 2
-u: 2
-v: 0
-w: 0
-x: 0
-y: 1
-z: 0
-0: 0
-1: 0
-2: 0
-3: 0
-4: 0
-5: 0
-6: 0
-7: 0
-8: 0
-9: 0
-Using chars: abcdefghijklmnopqrstuvwxyz0123456789
-Characters counted: 18
-Average character count: 0.5
-Stdev:	0.910258989833
-CV:	1.82051797967
+Domain: google.com
+TXT data: docusign=05958488-4752-4ef2-95eb-aa7ba8a3bd0
+TXT data: globalsign-smime-dv=CDYX+XFHUw2wml6/Gb8+59BsH31KzUr6c1l2BPvqKX8
+TXT data: v=spf1 include:_spf.google.com ~al
+TXT data: docusign=1b0a6754-49b1-4db5-8540-d2c12664b28
+TXT data: facebook-domain-verification=22rm551cu4k0ab0bxsw536tlds4h9
+
+Domain: youtube.com
+TXT data: google-site-verification=OQz60vR-YapmaVrafWCALpPyA8eKJKssRhfIrzM-DJ
+TXT data: v=spf1 include:google.com mx -al
+TXT data: facebook-domain-verification=64jdes7le4h7e7lfpi22rijygx58j
+
+Domain: tmall.com
+TXT data: v=spf1 include:spf1.staff.mail.aliyun.com -al
+
+Domain: baidu.com
+TXT data: google-site-verification=GHb98-6msqyx_qqjGl5eRatD3QTHyVB6-xQ3gJB5Uw
+TXT data: v=spf1 include:spf1.baidu.com include:spf2.baidu.com include:spf3.baidu.com a mx ptr -al
+
+Domain: sohu.com
+TXT data: v=spf1 include:spf.sohu.com -al
+
+Domain: qq.com
+TXT data: v=spf1 include:spf.mail.qq.com -al
+
+Domain: taobao.com
+TXT data: 5hrp21wwcjlvc2s1nhy8mmptb5tcdv7
+TXT data: v=spf1 include:spf1.staff.mail.aliyun.com -al
+
+Domain: facebook.com
+TXT data: v=spf1 redirect=_spf.facebook.co
+TXT data: google-site-verification=wdH5DTJTc9AYNwVunSVFeK0hYDGUIEOGb-RReU6pJl
+TXT data: google-site-verification=A2WZWCNQHrGV_TWwKh6KHY90tY0SHZo_RnyMJoDaG0
+
+Domain: login.tmall.com
+
+Domain: 360.cn
+TXT data: google-site-verification=1K11PwxsN2BlPk4W-ZmUvxh1ZxfMfEOt7ZXG0A-RwG
+TXT data: v=spf1 mx include:spf0.360.cn include:spf1.360.cn -al
+
+Domain: jd.com
+TXT data: uzaQt36B8kDyPUeTLXuaO9LbBskT8uS04AS59f+KX+g
+TXT data: v=spf1 include:a.spf.jd.com include:b.spf.jd.com include:servers.mcsv.net -al
+
+Domain: wikipedia.org
+TXT data: google-site-verification=AMHkgs-4ViEvIJf5znZle-BSE2EPNFqM1nDJGRyn2q
+TXT data: v=spf1 include:wikimedia.org ~al
+
+Domain: yahoo.com
+TXT data: v=spf1 redirect=_spf.mail.yahoo.co
+TXT data: facebook-domain-verification=gysqrcd69g0ej34f4jfn0huivkym1
+TXT data: edb3bff2c0d64622a9b2250438277a5
+
+Domain: amazon.com
+TXT data: facebook-domain-verification=d9u57u52gylohx845ogo1axzpywpm
+TXT data: v=spf1 include:spf1.amazon.com include:spf2.amazon.com include:amazonses.com -al
+TXT data: MS=4B600B22799EB2CAC0D8FF0A3A3CAECA5EE2BF3
+TXT data: spf2.0/pra include:spf1.amazon.com include:spf2.amazon.com include:amazonses.com -al
+
+Domain: pages.tmall.com
+
+Domain: sina.com.cn
+TXT data: v=spf1 include:spf.sinamail.sina.com.cn -al
+
+Domain: weibo.com
+TXT data: v=spf1 include:spf.weibo.com -al
+
+Domain: live.com
+TXT data: facebook-domain-verification=atvthxwtzc3u4ubnsozavn76cusua
+TXT data: google-site-verification=DVGpQUbbQCBRPGlmWiTVUMyQGfLPlEVw6Z4pm39AAj
+TXT data: google-site-verification=0mLTLcpaFxdFNO4m1TfqB2WQ4rGtz7xpPmFwDJ9O_9
+TXT data: google-site-verification=N9kowue62gCm511Op0_N2LO1JZTcjA2GYzOE22SBai
+TXT data: v=spf1 include:spf-a.hotmail.com include:spf-b.hotmail.com include:spf-c.hotmail.com include:spf-d.hotmail.com include:spf.protection.outlook.com ~al
+
+Domain: netflix.com
+TXT data: docusign=f249396f-8150-48f8-8bd2-705be6e0382
+TXT data: facebook-domain-verification=k65vedr09b2tp2q144ho1zewp3xsc
+TXT data: docusign=f3d36bef-ec7d-42e5-9334-626611acb12
+TXT data: zapier-domain-verification-challenge=d740d03c-47a4-491c-934d-c61bdba6099
+TXT data: dropbox-domain-verification=htwo11xk2yl
+TXT data: v=spf1 include:_spf_ipv4.netflix.com include:_spf.google.com include:amazonses.com -al
+TXT data: google-site-verification=YVxAf7gFR4vFk1RkUwiYt3pzl2AVUP6aPdBgV1qtwc
+TXT data: 8cd468d7d5994fcc9d350683a8cb07a
+
+Domain: vk.com
+TXT data: v=spf1 ip4:93.186.224.0/20 ip4:87.240.128.0/18 ip4:95.142.192.0/21 mx include:_spf.google.com -al
+TXT data: google-site-verification=bQE4SQUYC7KTvk4XCaMdwF0e_tj-O-6ZXMfXW2a8mH
+TXT data: yandex-verification: 5272a4ebac9953a
+
+Domain: okezone.com
+TXT data: v=spf1 include:spf.sg.aliyun.com -al
+
+Domain: reddit.com
+TXT data: atlassian-domain-verification=vBaV6PXyyu4OAPLiQFbxFMCboSTjoR/qxKJ2OlpI46ZEpZL/FVTIfMlgoM5Hy9e
+TXT data: docusign=6ba0c5a9-5a5e-41f8-a7c8-8b4c6e35c10
+TXT data: v=spf1 include:amazonses.com include:_spf.google.com include:mailgun.org a:mail.reddit.com ip4:174.129.203.189 ip4:52.205.61.79 ip4:54.172.97.247 ~al
+TXT data: google-site-verification=zZHozYbAJmSLOMG4OjQFoHiVqkxtdgvyBzsE7wUGFi
+
+Domain: blogspot.com
+TXT data: v=spf1 -al
+
+Domain: alipay.com
+TXT data: v=spf1 include:spf1.staff.mail.aliyun.com -al
+
+Domain: instagram.com
+TXT data: nEXgIFIbDifAKlSMQvAhly5SA-vpsAkm5wiOdwdkrz
+TXT data: adobe-idp-site-verification=367fda82-a8bb-46cf-9cff-0062d452d22
+TXT data: v=spf1 include:facebookmail.com include:spf.thefacebook.com include:spf-00082601.pphosted.com -al
+TXT data: ms=ms8697527
+TXT data: hyWdekepiNsp/V9b1JCR+wZDdzbESurl4GqY+FLMfiN+7aeFaway0Art+kNDHeL5OnGZipNeV/iIC+lOONSQVQ=
+TXT data: google-site-verification=GGtId51KFyq0hqX2xNvt1u0P9Xp0C7k6pp9do49fCN
+
+Domain: bing.com
+TXT data: v=spf1 include:spf.protection.outlook.com -al
+TXT data: facebook-domain-verification=09yg8uzcfnqnlqekzsbwjxyy8rdck
+TXT data: v=msv1 t=6097A7EA-53F7-4028-BA76-6869CB284C5
+
+Domain: csdn.net
+TXT data: aliyun-site-verification=019d4b53-d811-47df-8312-695fcef366f
+TXT data: v=spf1 include:spf.mail.qq.com ~al
+TXT data: google-site-verification=nn4nvxbYITKfb8-tv-QWw4H7PsjTM6LGvHDeUvrw0h
+
+Domain: aliexpress.com
+TXT data: mailru-verification: c9feb214b705f91
+TXT data: google-site-verification=-ap3gLODUF_ESQRpsT4UoHjz3rVy7LLa4HouklA_SA
+TXT data: v=spf1 include:spf1.service.alibaba.com include:spf2.service.alibaba.com include:spf2.ocm.aliyun.com -al
+
+Domain: yahoo.co.jp
+TXT data: google-site-verification=GvbYgNin-mY73VbS4IJK2D8nI3tHEf2NpRdy76VYqB
+TXT data: v=spf1 include:spf.yahoo.co.jp ~al
+
+Domain: xinhuanet.com
+TXT data: v=spf1 mx ip4:203.192.8.55 ip4:203.192.8.51 ~al
+
+Domain: twitch.tv
+TXT data: amazonses:n0xA4rjoeQ1tK6vzeRBViDtPhuXpqsnntVALqWAfEz0
+TXT data: amazonses:cpm2Dn+xS6T56Iq1KBjzLE3E7OsD2vAoCQIyxcVgplc
+TXT data: v=spf1 include:_spf.google.com include:amazonses.com include:spf.mtasv.net include:mail.zendesk.com include:_spf.twitch.tv ip4:52.73.203.75 ip4:67.207.130.212 ip4:69.38.212.114 ip4:52.223.252.128/27 ip4:52.223.252.160/27 ip4:167.89.64.215 a mx -al
+TXT data: amazonses:wzbVRObrJcHqXdo623myecXiqm4USLX3kIgSKymaVso
+TXT data: amazonses:TS/Q8uPSq0t+/WbYLWgVUDzblQD3Eg1T1FBxmkfz8kI
+TXT data: _globalsign-domain-verification=PeBo1xAMkWVFOqJ28xB-APP6cLPZNF6oB7m4jy94o
+TXT data: amazonses:q1VqNqptpdPoDMi8EixEYsLNRMP1pSxGIY3uOpUdDHQ
+TXT data: amazonses:36386uCaP/zadqoJqgFiBovDfuvRnOQaIdSiMN2ck7I
+TXT data: amazonses:103ntJItAHAS8zF3zrp1+RajxRQJ4tlPSC9BB4StgBk
+TXT data: bugcrowd-verification=4cb12e80d1cc53286a15726ee4bf8f6
+
+Domain: amazon.co.jp
+TXT data: facebook-domain-verification=q0vtskklb65bdw766sy92dffo95y0
+TXT data: v=spf1 include:amazon.com include:spf-bma.mpme.jp include:amazon-spf.mrs.mpub.ne.jp -al
+TXT data: adobe-idp-site-verification=b6bcd3e5aaffc63607c8bf75744d9a0d1febc50dd7f389428e2ae476c9ba881
+TXT data: spf2.0/pra include:amazon.com include:spf-bma.mpme.jp include:amazon-spf.mrs.mpub.ne.jp -al
+
+Domain: twitter.com
+TXT data: adobe-idp-site-verification=a2ff8fc40c434d1d6f02f68b0b1a683e400572ab8c1f2c180c71c3d985b9270
+TXT data: v=spf1 ip4:199.16.156.0/22 ip4:199.59.148.0/22 ip4:8.25.194.0/23 ip4:8.25.196.0/23 ip4:204.92.114.203 ip4:204.92.114.204/31 ip4:54.156.255.69 include:_spf.google.com include:_thirdparty.twitter.com -al
+TXT data: google-site-verification=TNhAkfLUeIbzzzSgPNxS5aEkKMf3aUcpPmCK1_kmIv
+TXT data: MS=BEE202D20C326867290BDEFA2DDDF4594B5D686
+TXT data: traction-guest=6882b04e-4188-4ff9-8bb4-bff5a3d358e
+TXT data: google-site-verification=h6dJIv0HXjLOkGAotLAWEzvoi9SxqP4vjpx98vrCvv
+
+Domain: ebay.com
+TXT data: v=spf1 include:c._spf.ebay.com include:p._spf.ebay.com include:p2._spf.ebay.com ~al
+TXT data: traction-guest=be0584db-6419-458c-9889-02c13519b9c
+TXT data: google-site-verification=8kHr3jd3Z43q1ovwo0KVgo_NZKIEMjthBxti8m8fYT
+TXT data: google-site-verification=-8fQa1t-LZYGDBqA-7xKMviyt-eGhzgndjqCWAQHEz
+TXT data: docusign=2f99919f-4b97-48a8-a0d6-f37c1b878a6
+TXT data: xsvrwb8728vd31dxf3kmr6f7b35jwtv
+TXT data: have-i-been-pwned-verification=0c602ead0d5752884611ab6da813088
+TXT data: MS=ms9573617
+TXT data: facebook-domain-verification=jo8zbq1pgu96gyxwhlbmwbzkhn55q
+TXT data: docusign=5afbc33d-5902-429f-9da5-85f53225ff2
+TXT data: atlassian-domain-verification=9CqXy0mqLrw8leKzrtncxQ7AVcomaaLh5g4ncvJK++dWfAE1p+e5zG3y+uz2IRA
+TXT data: ShLya0aQE6QdY+y/QHbaEM0uDHtx+lUS2Jw0Jh1n9FV2UJkOL8zTLrdgVRo0EWxTo7UZjvzmJxpdQiBKPfEe8Q=
+TXT data: 02ba557d7fd8451c92f6324910b4602
+
+Domain: github.com
+TXT data: v=spf1 ip4:192.30.252.0/22 ip4:208.74.204.0/22 ip4:46.19.168.0/23 include:_spf.google.com include:esp.github.com include:_spf.createsend.com include:servers.mcsv.net ~al
+TXT data: MS=ms5870444
+TXT data: MS=ms4445293
+TXT data: docusign=087098e3-3d46-47b7-9b4e-8a23028154c
+TXT data: MS=6BF03E6AF5CB689E315FB6199603BABF2C88D80
+
+Domain: livejasmin.com
+TXT data: google-site-verification=NdJ850i17vgHY6rpK3HtHPJlFlxCMiE9vZy8KlSVcr
+TXT data: MS=ms2027718
+TXT data: v=spf1 include:_spf.duodecadits.com ip4:93.93.49.152 ip4:5.159.216.29 ip4:109.71.166.0/24 -al
+
+Domain: pornhub.com
+TXT data: v=spf1 mx a:smtp2.shopify.com ip4:94.199.255.10/32 ip4:208.91.206.64/26 ip4:66.254.113.78/32 ip4:66.254.119.174 ip4:66.254.113.78 ip4:66.254.112.72/30 -al
+TXT data: google-site-verification=RXzbqpLPYNdiSQHwe2p1OduIWhnPEA4Rm093kAL6V4
+
+Domain: babytree.com
+TXT data: kevd5mkivit4eaiqt36cnh1n7
+
+Domain: google.com.hk
+TXT data: v=spf1 -al
+
+Domain: microsoft.com
+TXT data: adobe-idp-site-verification=8aa35c528af5d72beb19b1bd3ed9b86d87ea7f24b2ba3c99ffcd00c27e9d809
+TXT data: google-site-verification=6P08Ow5E-8Q0m6vQ7FMAqAYIDprkVV8fUf_7hZ4Qvc
+TXT data: adobe-sign-verification=c1fea9b4cdd4df0d5778517f29e093
+TXT data: 3lp8f84rbvcsohupiil488dlj
+TXT data: facebook-domain-verification=bcas5uzlvu0s3mrw139a00os3o66w
+TXT data: v=spf1 include:_spf-a.microsoft.com include:_spf-b.microsoft.com include:_spf-c.microsoft.com include:_spf-ssg-a.microsoft.com include:spf-a.hotmail.com ip4:147.243.128.24 ip4:147.243.128.26 ip4:147.243.1.153 ip4:147.243.1.47 ip4:147.243.1.48 -al
+TXT data: facebook-domain-verification=gx5s19fp3o8aczby6a22clfhzm03a
+TXT data: docusign=52998482-393d-46f7-95d4-15ac6509bfd
+TXT data: facebook-domain-verification=m54hfzczreqq2z1pf99y2p0kpwwpk
+TXT data: google-site-verification=8-zFCaUXhhPcvN29EVw2RvtASDCaDPQ02L1HJ8Om8I
+TXT data: docusign=d5a3737c-c23c-4bd0-9095-d2ff621f284
+TXT data: atlassian-domain-verification=jbey7I2+3Wyl+PZ0QUCC6fCz2Gu5KO7GQPcy/0c4za7ebQxar/qqujJH4kZLVQH
+TXT data: google-site-verification=yUE_SrjKKb4FHH1H04VWidfwstTGeS1FLx3Mcsnijj
+TXT data: FbUF6DbkE+Aw1/wi9xgDi8KVrIIZus5v8L6tbIQZkGrQ/rVQKJi8CjQbBtWtE64ey4NJJwj5J65PIggVYNabdQ=
+
+Domain: tribunnews.com
+TXT data: v=spf1 ip4:202.158.69.186 a ~al
+
+Domain: tianya.cn
+TXT data: spf1 ip4:218.77.130.133 -al
+
+Domain: google.co.in
+TXT data: v=spf1 -al
+
+Domain: stackoverflow.com
+TXT data: google-site-verification=rdWtMbplKjbRHGr2dNONfwkqithlUvjr3u6i8QEz_m
+TXT data: google-site-verification=o3EMam8yBGo1yEjyybIiZcOunGHOQKpo8JmOtp9n1B
+TXT data: atlassian-domain-verification=MQ5gGVopIkUJCrlb5rYLdhHw0ymccozlU/2k7vywlBiKiqJgv1kHH9IZnX615Os
+TXT data: v=spf1 ip4:198.252.206.0/24 ip4:192.111.0.0/24 ip4:52.38.191.241 ip4:35.190.247.0/24 ip4:64.233.160.0/19 ip4:66.102.0.0/20 ip4:66.249.80.0/20 ip4:72.14.192.0/18 ip4:74.125.0.0/16 ip4:108.177.8.0/21 ip4:173.194.0.0/16 include:_spf1.stackoverflow.com ~al
+TXT data: google-site-verification=ctogLnZNAdc_CXq8yOhODMLpmugGynjxKecKHDz4oL
+TXT data: MS=ms5259261
+
+Domain: office.com
+TXT data: google-site-verification=9aqt6mNhLx_inDlQjEfPiqq_TYfy72IFpoUh5_gijE
+TXT data: facebook-domain-verification=h6ulkdsze2qhdtbdnivt3lilquemg
+TXT data: google-site-verification=ntjPAtTot4dDzv9Z7WpQYYSlgVajPuBZx0FoZyRE8q
+TXT data: google-site-verification=zqthuNzyDukN37Znr1L5xdDKHo7KZUL2LTyOqzU7cF
+TXT data: google-site-verification=WiCZ6HhPFmPMk5PTkdpSnevgiRttL2tQ-7QA_Z81JR
+TXT data: google-site-verification=iJN6qYrMLZmqRE70EPwnmUtT7qW3Rs-X3_wgil1YQj
+
+Domain: imdb.com
+TXT data: adobe-idp-site-verification=b6bcd3e5aaffc63607c8bf75744d9a0d1febc50dd7f389428e2ae476c9ba881
+TXT data: spf2.0/pra include:amazon.com ip4:206.165.150.64/26 ?al
+TXT data: IPROTA_D66964-XX
+TXT data: v=spf1 include:amazon.com ip4:206.165.150.64/26 ?al
+
+Domain: apple.com
+TXT data: webexdomainverification.1KMLN=4a9f9161-2934-4e3c-bd19-1bac19096ca
+TXT data: v=spf1 include:_spf.apple.com include:_spf-txn.apple.com ~al
+TXT data: google-site-verification=L5kkMdiFI8npvb6KlHui84fJaCw5G64DWhaDRIAT4_
+TXT data: adobe-idp-site-verification=6bd5e74c-a3a0-4781-b2e1-e95399b5e11
+TXT data: facebook-domain-verification=n6cqjfucq6plswmtfbwnbbeu1qiq3
+
+Domain: zhanqi.tv
+TXT data: v=spf1 ip4:112.124.114.218 ~al
+
+Domain: yandex.ru
+TXT data: 6b49966ef66b1260d69023db6265685b886bee889cc4885e526ce14022d98f1
+TXT data: _globalsign-domain-verification=lD5-OgV_QE93G8rzNaeJKvtqe9tlP5AZtyDodrldY
+TXT data: 2e35680fa5ac784cf58deca180385b5eff74dfeb831c2d73830425e8a8deb7d
+TXT data: MS=ms7545788
+TXT data: google-site-verification=XyQDB5000-0rTv33yw7AX-EiuH1v5yW5PjkYeYxxPE
+TXT data: mailru-verification: 530c425b1458283
+TXT data: facebook-domain-verification=e750ewnqm68u4f83wvp6qp7iiphkj
+TXT data: v=spf1 redirect=_spf.yandex.r
+
+Domain: amazon.in
+TXT data: spf2.0/pra include:amazon.com -al
+TXT data: facebook-domain-verification=hgfnhz04meuxr62da6b00kwas2n4m
+TXT data: v=spf1 include:amazon.com -al
+TXT data: adobe-idp-site-verification=b6bcd3e5aaffc63607c8bf75744d9a0d1febc50dd7f389428e2ae476c9ba881
+
+Domain: panda.tv
+TXT data: google-site-verification=jyulYTVP3XsWctii-fSlsiNHB4d1xicOmP4AbDCwF6
+TXT data: v=spf1 mx ip4:114.242.236.128/25 ip4:47.88.54.54/32 ip4:47.88.48.141/32 ip4:47.91.243.122/32 ip4:36.110.107.88/32 ip4:47.91.254.60/32 ~al
+
+Domain: wordpress.com
+TXT data: v=spf1 include:_spf.automattic.com include:servers.mcsv.net include:_spf-wwd.automattic.com include:mail.zendesk.com include:sendgrid.net ~al
+
+Domain: naver.com
+TXT data: google-site-verification=TX2ZPeYhsJwJ-zQKOLMgqsTx4R5mAlBy2CjxIcl2Xg
+TXT data: v=spf1 include:_spfblocka.naver.com include:_spfblockb.naver.com include:_spfblockc.naver.com include:_spfblockd.naver.com include:_spfblocke.naver.com include:_spfblockf.naver.com include:spf.worksmobile.com ~al
+TXT data: google-site-verification=fK9dDFcEOeNM2Wr3xzNAN-XLcerfAGpOABdSYiqw4_
+
+Domain: soso.com
+TXT data: KAR/h4cMX/bWB1rhMToZkYa/3W9daFwYMVza2nwApO0
+TXT data: v=spf1 ip4:113.142.10.0/25 ~al
+
+Domain: myshopify.com
+TXT data: v=spf1 -al
+TXT data: ca3-9b7d9a06dfbf45a38d25b542ed3710f
+
+Domain: msn.com
+TXT data: google-site-verification=UD8QgtEwICvnHY33DI3keFDN0PIM012L6YFwtr9SSm
+TXT data: v=spf1 include:spf.protection.outlook.com include:spf-a.hotmail.com include:spf-b.hotmail.com include:spf-c.hotmail.com include:spf-d.hotmail.com include:_spf-ssg-a.microsoft.com ~al
+TXT data: globalsign-domain-verification=KaParXxs1OHDy7o8CMbPpHBN-2m_mzwdPqKMMQ66a
+TXT data: facebook-domain-verification=q715hqwb3sc3mkxajcokcksu21c8r
+
+Domain: mail.ru
+TXT data: v=spf1 redirect=_spf.mail.r
+TXT data: google-site-verification=3Pifghdk3UShd7gzYd0Bjfqrq8Mn3bQAVonGr3xb9q
+TXT data: mailru-verification: 43e81e646c1675e
+
+Domain: xvideos.com
+TXT data: v=spf1 mx ip4:141.0.172.202/32 ip4:69.55.53.149/32 ip4:69.55.53.150/32 ip4:141.0.172.99/26 ip4:141.0.168.58/32 ip4:69.55.57.146/32 ip4:69.55.53.235/32 include:_spf.google.com include:sendgrid.net include:spf.dynect.net -al
+TXT data: google-site-verification=sH1r3aq77F0b0rruz_3bClKbjliI5235_wAPT2lQU0
+
+Domain: adobe.com
+TXT data: facebook-domain-verification=3rlk6hdq3nk34qcs4bsz8dua9a1ho
+TXT data: google-site-verification=OCQ4NvNmnZ5O-G_OmpA4igVzqwDoRS2qDECNKajvSX
+TXT data: Fastly-Domain-Verify-as9dfas8d8fa7-sd707sdfasdf90
+TXT data: google-site-verification=IWlts5bv60RGLZCKTgxClTsuNLB9cT_09-pevXId2o
+TXT data: v=spf1 include:a.adobe.com include:b.adobe.com include:spf.protection.outlook.com include:spf.mandrillapp.com include:spf-a.rnmk.com include:servers.mcsv.net include:sendgrid.net include:_spf.sendergen.com IP4:139.138.59.249 IP4:139.138.34.246" " IP4:38.103.3.36 IP4:208.74.204.0/22 IP4:46.19.168.0/23 -al
+TXT data: _github-challenge-adobe=94b215a3c
+TXT data: google-site-verification=MnYkALPA4CNieThUZzzp4Hh88H5szHXokxqirdGFFN
+TXT data: 98a8944ee0d54f6798380941906d624
+TXT data: atlassian-domain-verification=MuhJPcv3bzIQ9BHg1GjhQfmq+1evcqT7fB9gGJn4aOmE2HExlRuwjr5EE7/nABX
+TXT data: google-site-verification=v-817iF9e0_UdjWiz3gtCfMvYr8CVFt1Ej4QvMq640
+TXT data: DXpQZzX4rXJPkCKMkVXs/GYPXzPHerZdxcw5iIMxFy9AjmN9DJ0bat/TqD5cRS/CpsN2Rk9y7NH1FfQkGS3vWg=
+TXT data: token value: 34150eb3cd1c4415972199b62fd720d
+
+Domain: china.com.cn
+
+Domain: spotify.com
+TXT data: facebook-domain-verification=qyrvuca7h4s7wevhzbprtt3tdyyhf
+TXT data: google-site-verification=buTP-BbGUoP8lPntqskvSbeS68M4PDoIFkiUtQEA5n
+TXT data: google-site-verification=ehIHBRyAOKdOfUyw_ONXT0TMuUsdk1gDGSYfk8YhRg
+TXT data: v=spf1 ip4:80.76.146.172 ip4:80.76.146.173 include:_spf.google.com include:servers.mcsv.net ~al
+TXT data: MS=ms3818403
+TXT data: google-site-verification=uD4f4k01lFWX3qwVbqnVaJg8atpKgAgc-_RYcyT3of
+TXT data: MS=8FA61B90BC79C597BE898C2587D3B149F53706F
+TXT data: google-site-verification=ESiNWockZgSgTPSsrsAdMX9afsj2-_8504nQ0qIHkD
+
+Domain: google.de
+TXT data: v=spf1 -al
+
+Domain: roblox.com
+TXT data: v=spf1 include:_spf.google.com ip4:50.232.73.154/32 ip4:64.124.125.0/26 ip4:208.185.173.0/24 ip4:208.185.116.0/25 ip4:64.125.149.0/24 ip4:8.42.96.0/24 ip4:216.200.230.0/24 ip4:8.42.100.0/24 include:_spf_20190122.roblox.com include:mail.zendesk.com -al
+TXT data: google-site-verification=BfkEEZ1dsSAEJIS1yV2prCFgO8zboMYioG1c9VITB5
+TXT data: dropbox-domain-verification=ek74bxiun7m
+TXT data: zendeskverification.roblox.co
+TXT data: MS=ms3597348
+
+Domain: caijing.com.cn
+
+Domain: so.com
+TXT data: 85ef4c86d3119e3ed8394c8c81fe70433fd9a206034c46a7604c0a4d95c25e5
+TXT data: v=spf1 mx ip4:220.181.158.175/32 include:spf1.360.cn -al
+
+Domain: dropbox.com
+TXT data: docusign=a3cf77c9-f563-4c9b-8cbb-73c5322feb8
+TXT data: 1e6de3584eb44e3e9fde429fb262995bb3f6422cab16daeff7cba598948242b
+TXT data: v=spf1 ip4:45.58.64.0/20 ip4:185.45.8.0/22 ip4:162.125.0.0/16 ip4:199.47.216.0/22 ip4:108.160.160.0/20 ip4:205.189.0.0/25 ip6:2001:470:841d::/64 ip6:2620:C6:8000::/48 ip4:160.34.15.16/28" " include:amazonses.com include:_spf.google.com include:mail.zendesk.com include:mktomail.com include:_spf.salesforce.com ~al
+TXT data: adobe-idp-site-verification=4977108a-46c6-4763-a3cc-b23b3d87e5c
+TXT data: google-site-verification=8NWlYGBCOsGGZoWB62V0z-I1v92RPDYt5e2MIcIlKO
+TXT data: google-site-verification=leXlkd4GKqaMP-t93sX2D_mNej1qyME73hyCvyjkbm
+TXT data: docusign=c18a935e-b7a7-4ca5-a401-9f7cac288c0
+TXT data: MS=ms9125651
+TXT data: google-site-verification=vPdXnwB_snnJ8dqzD0OFEhiy3Vjq2l7qhXA-rnWR1l
+TXT data: citrix-verification-code=b29deae6-12fa-4939-a5b1-9585f5fc82b
+
+Domain: bongacams.com
+TXT data: v=spf1 include:spf-iq-3.com include:_spf.bongacams.com include:_spf.google.com include:_spf.ynotmail.com ~al
+TXT data: mailru-verification: cd7f13787404e5f
+TXT data: google-site-verification=uSiwIRfLP6iCAvyoEDFi1WgIUC3oKblFnaj49WwD3W
+TXT data: google-site-verification=DA86jZiEAmctuEpM6mKh-SXZNHpmIDoB2NkeY-ujss
+
+Domain: mama.cn
+TXT data: v=spf1 include:spf.mail.qq.com ~al
+
+Domain: ok.ru
+TXT data: mailru-verification: 432f8720b192812
+TXT data: google-site-verification=Ulruf8YYkR5p9-2klauDQNcJNSXgLzqmpqZuu3btFz
+TXT data: v=spf1 ip4:217.20.144.0/20 ip4:5.61.16.0/21 ip4:185.16.244.0/22 ip4:185.16.148.0/22 ip4:89.111.19.0/24 ip4:188.93.58.115/32 ip4:217.69.129.234/32 include:astrum-nival.com ip4:178.22.88.131 ip4:188.93.63.75 include:_spf.mail.ru include:_spf.notify.mail.ru " "include:spf.unisender.com ~al
+TXT data: mailru-verification: c54cac0033fe577
+TXT data: mailru-verification: 000ee422012001f
+TXT data: yandex-verification: 72c290082879917
+TXT data: mailru-verification: 0ec15abd420c666
+TXT data: spf2.0/mfrom,pra ip4:217.20.144.0/20 ip4:5.61.16.0/21 ip4:185.16.244.0/22 ip4:185.16.148.0/22 ip4:89.111.19.0/24 ip4:188.93.58.115/32 ip4:217.69.129.234/32 include:astrum-nival.com ip4:178.22.88.131 ip4:188.93.63.75 include:_spf.mail.ru include:_spf.notif" "y.mail.ru include:senderid.unisender.com ~al
+
+Domain: linkedin.com
+TXT data: 448e0dc03e935ecf66d81f1ce3c26b2f2fea13756c031ffc4be91749107f3a7
+TXT data: docusign=11f01284-dffc-40f9-8d56-57e5261ede3
+TXT data: google-site-verification=xAGz495k8RbGclhamQx1TkZSHDxOaEd95fOjc8xpbT
+TXT data: v=spf1 ip4:199.101.162.0/25 ip4:108.174.3.0/24 ip4:108.174.6.0/24 ip4:108.174.0.0/24 ip6:2620:109:c00d:104::/64 ip6:2620:109:c006:104::/64 ip6:2620:109:c003:104::/64 ip6:2620:119:50c0:207::/64 ip4:199.101.161.130 mx mx:docusign.net ~al
+TXT data: google-site-verification=VE9BWhjbPPNmbr3ZJcwn5hLTsz7c5KPt3zXdYyaSnS
+
+Domain: amazon.co.uk
+TXT data: spf2.0/pra include:amazon.com -al
+TXT data: v=spf1 include:amazon.com -al
+TXT data: facebook-domain-verification=s683te1vv3i7f7c7fbq4ps45yxkt6
+TXT data: adobe-idp-site-verification=b6bcd3e5aaffc63607c8bf75744d9a0d1febc50dd7f389428e2ae476c9ba881
+
+Domain: detail.tmall.com
+
+Domain: booking.com
+TXT data: _globalsign-domain-verification=l_BNpBAnk-rKZRyXJ9UkBfv9o6EEuuenkBrGpYNYo
+TXT data: v=spf1 include:_spf.booking.com include:priceline-spf.priceline.com include:_spf.messagegears.net include:sendgrid.net include:mail.zendesk.com include:spf.logicalware.com include:mailgun.org -al
+TXT data: globalsign-domain-verification=jpcnVg6kuHYyEz5op6ZzxI2E53gePoVqca7RgL0aN
+TXT data: MS=ms3539208
+TXT data: docusign=1ddc2bf3-a249-4127-a351-f22dc75077d
+TXT data: google-site-verification=IqETr3m1Iq2apdhg2tJndtOH5xn_C0PrLSBL4UpB9W
+TXT data: adobe-idp-site-verification=040db58f-cfb9-4203-a555-bfcd15b24b8
+TXT data: _globalsign-domain-verification=FSlSaYMuHsffF-JRsSpJSonQOV0_jwrwl5kQGpFdt
+TXT data: logmein-domain-confirmation 90DIFG9EEUT8U8R4895Y87
+TXT data: atlassian-domain-verification=F3hugs/a4ZZHwjGTLmlb12IMA3TIRiz3ifqw4TKRz9tWk0LoyBBXfwc775aT/ju
+TXT data: VkJHqtn1JPDHrgqwzb8C30fmoABFhxVfjIOtLvlUK06CUwKgd2mevDGtnDhWZcNbxEgK39DOezbHay8XSv1zVQ=
+TXT data: google-site-verification=WMDRc5NQqj7RWff1N8L0_Ikc08kSr-iUa3C0Zczl9Q
+TXT data: google-site-verification=w40NMRtPNbdzr8FXV33gtkD3qlFHastApR2UgHgggf
+TXT data: google-site-verification=z4muhl35r1aT-msc5R269PO3RKaZHc7zzn6omxkied
+
+Domain: xhamster.com
+TXT data: google-site-verification=tebE4H9zjyDQU6IMkEZLw1TL0sGi3S0w0PZAgTTo3X
+TXT data: v=spf1 include:_spf.google.com include:_spf.smtp.advancedhosters.com -al
+TXT data: brave-ledger-verification=b0be17427649baa3df8585cd8a925453e4066549c26e6f02957af10f665708b
+TXT data: google-site-verification=Sd0D92nIMjT-vwadJsxHtZaJCmpz13XQNkdAm12M2T
+TXT data: mailru-verification: f5233dcb608f012
+TXT data: google-site-verification=wFhABH7C00kAyDG91D-6kwaUvPnH8N7meVvcFZn48h
+TXT data: google-site-verification=AxxZPlZNSk5DVq1AT_s480XEAkkc-vXpExQbvFd0tq
+TXT data: brave-ledger-verification=19ab779bde1c8e29a4b1fa674dbb7cb10ea47ab722d49a2dff0e3542db217a6
+TXT data: mailru-verification: 8ff4310f8105c14
+
+Domain: google.co.jp
+TXT data: v=spf1 -al
+
+Domain: paypal.com
+TXT data: v=spf1 include:pp._spf.paypal.com include:3ph1._spf.paypal.com include:3ph2._spf.paypal.com include:3ph3._spf.paypal.com include:3ph4._spf.paypal.com include:3ph5._spf.paypal.com ~al
+TXT data: adobe-idp-site-verification=11600efbec96c0e73dd8820cd33ca906ec4302aea4487d208a42a2b01806144
+TXT data: yandex-verification: 73acb90f6a9abd7
+TXT data: workplace-domain-verification=F7ezsH9uapvYDGd2VtPARy1qq9ymN
+TXT data: google-site-verification=Mfy_g_Azi4RuSGy1j4xdt9Rd11lTVk7pXIqqFs6Okk
+TXT data: MS=ms9596030
+TXT data: docusign=c02299a9-ebd1-4f91-b060-fb630d97355
+
+Domain: microsoftonline.com
+TXT data: google-site-verification=y-tlrGiMNJkBF1UO4Xk0GjbVwYk3p5urCieV9B1sHJ
+TXT data: spf2.0/pra include:spfa.microsoftonline.com include:spf.frontbridge.com include:spf-exacttarget.microsoftonline.com include:spf-prx.microsoftonline.com include:spf-msods.microsoftonline.com -al
+TXT data: v=spf1 ip4:216.32.180.228 include:spfa.microsoftonline.com include:spf.frontbridge.com include:spf-exacttarget.microsoftonline.com include:spf-msods.microsoftonline.com include:spf-mfa.microsoftonline.com include:_spf-ssg-a.microsoft.com -al
+
+Domain: rednet.cn
+TXT data: v=spf1 include:spf.mail.qq.com ~al
+TXT data: 201709291117164h3b8pkcse8yww08ria4y16oxqu273sx2tlkuga6wx9ab64qz
+
+Domain: tumblr.com
+TXT data: f050f00fa3c941ea9ee3f76fc6562a1
+TXT data: knowbe4-site-verification=bc3830115833f4f956e30f506f1da8c
+TXT data: docusign=89f952a7-e765-4f50-a3d7-9de3cd65cac
+TXT data: 896862773-620471
+TXT data: dropbox-domain-verification=gsvpgz511vs
+TXT data: google-site-verification=Lo7SPQypP2V81VN_Gw7ifdnK8cnZ3D6skG0v8dxKOC
+TXT data: v=spf1 include:_spf.google.com include:_spf.automattic.com include:sendgrid.net include:mail.zendesk.com ~al
+
+Domain: amazon.de
+TXT data: facebook-domain-verification=ek1qt04zvhemukcyfwbciyb8l0egk
+TXT data: spf2.0/pra include:amazon.com -al
+TXT data: v=spf1 include:amazon.com -al
+TXT data: adobe-idp-site-verification=b6bcd3e5aaffc63607c8bf75744d9a0d1febc50dd7f389428e2ae476c9ba881
+
+Domain: espn.com
+TXT data: docusign=0f5ff8fc-4420-4d52-9877-33f1485d191
+TXT data: D074-DF5F-73F8-42A6-65B8-DCED-DDCF-F83
+TXT data: MS=ms5494074
+TXT data: docusign=e95b2d67-24b3-4e1e-9402-902d0b5e0c6
+TXT data: v=spf1 include:servers.mcsv.net mx ip4:74.123.203.125 ip4:74.123.200.120 ip4:74.123.200.35 ip4:74.123.200.36 ip4:74.123.203.98 ip4:74.123.200.222 ip4:192.234.2.39 include:_spf.emailcampaigns.net include:userinclude.dme3ds1.com include:spf.disney.com ~al
+TXT data: dropbox-domain-verification=f8opl8j5mr5
+TXT data: adobe-idp-site-verification=012b7d24aff9766444b9232173abb52ef026139e50aac77c49e02bd5d0dc391
+TXT data: pzhuVdOHPcxbY0BufDtyUHwrXoU8KikclnWWDgxOWNCyyCXtpK1Ws+A4mpps+Rtq0GARiBCA+IVLiCYcDhlSLw=
+TXT data: ciscocidomainverification=2c2658d02e94ce88b29494db432d2c911fc43abd373e5e485b58562f8dd78c8
+
+Domain: bbc.com
+TXT data: docusign=57499c1f-9099-463b-a5bd-cb7583816d7
+TXT data: _globalsign-domain-verification=pZpeKf4_PFFFNaSKMWqaRzSejy7Np2wi0j8NMvEBz
+TXT data: 1884df5221d841f294fd942e3e95a01
+TXT data: MS=ms2586355
+TXT data: v=spf1 ip4:212.58.224.0/19 ip4:132.185.0.0/16 ip4:78.136.53.80/28 ip4:78.136.14.192/27 ip4:78.136.19.8/29 ip4:89.234.10.72/29 ip4:74.112.66.33 ip4:208.251.80.51 ip4:89.202.185.0/24 ip4:207.159.133.98 ip4:207.159.133.99" " include:msgfocus.com include:cmail1.com include:mktomail.com include:servers.mcsv.net include:redsnapper.net ?al
+TXT data: adobe-idp-site-verification=c3a16fcb00ac5365e4ea125d5e59d4be11936f768b3020c4d81b4232019604a
+TXT data: google-site-verification=yTRDtkD0tgHXSaJL0EtVrYGv1moNR-QkK8BAvjTv2Q
+TXT data: docusign=75217687-3ba0-49bb-bb3b-482d888493a
+TXT data: google-site-verification=mTy-FoNnG0yetpI3-0e9AXctAkUCcWGc_K3BcMfioF
+TXT data: dropbox-domain-verification=mtgv0f2pudo
+TXT data: Fzj91DPhHcxL3FxKMiBraJ9CajRin4nqr8AxflyEQLI+dM+xdOt5/I8F4xGMWelgP2SwFda7w8U2KZFjDR6Ocg=
+
+Domain: fandom.com
+TXT data: Security code: 4LG-RWT-MS
+TXT data: MS=AB4701DA63C603A02A320001C1900C7BD4D0DA9
+TXT data: GlobalSign - 19ul7
+TXT data: mailo._domainkey.fandom.com k=rsa; p=MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCbUyzIX1RpCUAkjKiwAExj7/u2sffs4tOVXcEh5ffslWRYjFZRBaRWl2MhDfF1U964O9hdvhejuYChEoqANORbIQ/WvXwT+H0bK2/r78tZwvUK2bCpyS5U2TapLGaq47UcDNgmvKWg2pRaR4QP9oQCDilHSOnhfTCInrJ+7WRnUQIDAQA
+TXT data: yandex-verification: 1f7f122f7461e7f
+TXT data: v=spf1 ip4:74.120.184.0/21 ip4:208.68.167.128/28 include:aspmx.googlemail.com a:spf.mail-sendgrid.wikia.com include:mail.zendesk.com include:_spf.google.com include:mailgun.org include:servers.mcsv.net ip4:216.70.104.248 -al
+TXT data: 677718B98
+TXT data: _globalsign-domain-verification=dKKolNd2bLj3M-fET0u0E_RQwBRgco-Hf_pIZUeLL
+TXT data: google-site-verification=h_Y_9CmzQ9nP7oyO0rGWC_82GIZI7n-0GzxkKM_QN5
+
+Domain: whatsapp.com
+TXT data: adobe-idp-site-verification=a0d9793b-fc40-430b-9ab4-d3c75e4dcfb
+TXT data: MS=ms2299472
+TXT data: dropbox-domain-verification=lfq0o9x85s8
+TXT data: Ghm7XCdpYQEendZNsepA80OBAhbN9sfITvUxiy9FNdOGBxeAQICCmLbuXm23hNaysns+wZ6GskJWMtWD1/Ha9Q=
+TXT data: google-site-verification=cpsIa1x3ZLMJcyZWxPgr7z1RVuGWSCZrKZxMO7wKau
+TXT data: v=spf1 include:spf.thefacebook.com include:_spf.google.com include:spf-00082601.pphosted.com include:facebookmail.com -al
+TXT data: bFwlY7J2JzFYHw5qkQFcBD6EOr9JL4VBpYSXSk3p8l
+
+Domain: soundcloud.com
+TXT data: v=spf1 include:_spf.google.com ip4:178.249.138.0/23 ip4:145.253.129.216/29 ip4:80.82.202.192/28 ip4:52.17.172.90/32 include:spf.mandrillapp.com -al
+TXT data: botify-site-verification=VyJVacuoqlVARp4iXaeza0p9iFlTUub
+TXT data: google-site-verification=XeZ-E4GllDiAn5Jijct28KYOc7pFhOdf8LnEhOe3dB
+TXT data: MS=ms6789431
+TXT data: JlHKdOBLZpjS/UOFcGHRiSM38ADQhJ0fAN6IMMgSdts
+TXT data: google-site-verification=U41CuhcP0HS0kVo6HaaLA0Vo-6Wdk8YO-M_Q4rukDm
+TXT data: google-site-verification=bGedCZYrMEPIXRPH5n3Rb0dJjFPACxuP_xMbAPCPen
+TXT data: MS=ms2537180
+
+Domain: google.com.br
+TXT data: v=spf1 -al
+
+Domain: imgur.com
+TXT data: v=spf1 ip4:54.198.157.21 include:mailgun.org include:_hostedspf.discourse.org include:amazonses.com include:_spf.google.com -al
+TXT data: postman-domain-verification=45da7b179f25335b9e65a9b8d26d2fcd0739b9a1bf830b954c8abffd4acdb020707de3ddae662ed12ce411cce3357a6bd5a50c30c82bf4c481e40632f12d6ba
+TXT data: google-site-verification=5LpC2cNStgarBbaNQSiwrOH9ys6MVOh85gX1885oRk
+
+Domain: onlinesbi.com
+TXT data: v=spf1 -al
+TXT data: 2a00ee2a5eb34f3da14854610132a34
+
+Domain: chase.com
+TXT data: webexdomainverification.11CHQ=38b7af7d-f3ac-40d3-b90b-c2e3b021e2f6
+TXT data: MS=ms1894430
+TXT data: webexdomainverification.11D70=c087ea5b-b6b4-4fb0-8a4c-0f5a5b6ec95
+TXT data: v=spf1 a:spf.jpmchase.com ip4:207.162.228.0/24 ip4:207.162.229.0/24 ip4:207.162.225.0/24 ip4:196.37.232.50 ip4:159.53.46.0/24 ip4:159.53.36.0/24 ip4:159.53.110.0/24 ip4:159.53.78.0/24 include:tpo.chase.com -al
+TXT data: webexdomainverification.EP9E=2b6081b5-d501-46a9-adac-ff6ba1dbae2
+TXT data: webexdomainverification.=ec83a778-f4ed-4e8a-8d45-b82ac7495ca
+TXT data: webexdomainverification.2449D=fd5bc401-5e80-4a36-89e6-0c1933299b7
+TXT data: MS=0E722CA8251D0B2F76B8E6A36E33D730399F94D
+TXT data: docusign=b04ddbec-21ac-4d6b-bb8b-3f1a3bca079
+TXT data: IOUmBzHRjemcu6DZn5mwbJ78OU8ekbX4InsX/3c1ftVxCZ9jvtPmGyfvzcuzv2e0caXQh/yn21tNd2IP/wPEtg=
+TXT data: facebook-domain-verification=vfe3eq2579x3hyeix7vo7csi6vse7
+TXT data: docusign=500adee6-4cca-451d-bcd8-2813346419c
+TXT data: webexdomainverification.EHCY=904de6ff-fda4-4014-943e-cb4dcfb5a4d
+
+Domain: walmart.com
+TXT data: adobe-idp-site-verification=7f3fb527466337ac0ac0752c569ca2ac48926dc6c6dad3636d581aa131a1cf3
+TXT data: _globalsign-domain-verification=t1aG5XXr7KpeunyzplcyPMedQSMTPyVLgCe2rOFBm
+TXT data: facebook-domain-verification=ximom3azpca8zph4n8lu200sos1nr
+TXT data: google-site-verification=WnjFsU2BhWIjYZFgc3KWEt3n3PmBurN1hHCGhUwbMs
+TXT data: v=spf1 include:_netblocks.walmart.com include:_smartcomm.walmart.com include:_vspf1.walmart.com include:_vspf2.walmart.com include:_vspf3.walmart.com ip4:161.170.248.0/24 ip4:161.170.244.0/24 ip4:161.170.241.16/30 ip4:161.170.245.0/24 ip4:161.170.249.0/24" " ~al
+TXT data: onetrust-domain-verification=cf815e1317884a00919c4ff41e7673e
+TXT data: google-site-verification=ZZYRwyiI6QKg0jVwmdIha68vuiZlNtfAJ90msPo1i7
+TXT data: dtOeNuIs42WbSVe3Zf2qizxLw9LSQpFd6bWqCr166oTRIuJ9yKS+etPsGGNOvaiasQk2C6GV0/5PjT9CI2nNAg=
+TXT data: docusign=5bdc0eb1-5fb2-471c-99a0-d0d9cc5fdac
+TXT data: adobe-idp-site-verification=5800a1970527e7cc2f5394a2bfe99bcda4e5938e132c0a19139fda9bf6e3070
+TXT data: MS=E4F53D5B1A485B7BA06E0D36A9D38654A16609F
+TXT data: wrike-verification=MjUxOTk3NzpiOWIxMTRiNTNkNGZhMzdjOWNkMDg5OTgzZGNmZmVlYjdlNjhkYzQwN2U2OGI4MzdiNmM5YTIwYjEzMTUxOTJ
+
+Domain: medium.com
+TXT data: google-site-verification=TUaeSBwTARWW1ntR_TLK0FwD5WKnFCpB5gYVuXkBml
+TXT data: status-page-domain-verification=n0txsmjnqhy
+TXT data: facebook-domain-verification=eqviiajbkkhum35vciytgngt69oan
+TXT data: google-site-verification=lxbGWKFxVOnrXgFo4iaDGe6jECFqqykCdeia4P2YMo
+TXT data: 07ecf60c9da442a9b3bcce99190ff60
+TXT data: Domain verification for DigiCert, please send approval to domain-admin@medium.co
+TXT data: v=spf1 include:email.medium.com include:amazonses.com include:_spf.google.com include:mail.zendesk.com include:third_party.medium.com include:stspg-customer.com include:spf.tipalti.com -al
+
+Domain: hao123.com
+TXT data: v=spf1 include:spf1.baidu.com include:spf2.baidu.com include:spf3.baidu.com a mx ptr -al
+
+Domain: google.ru
+TXT data: v=spf1 -al
+
+Domain: detik.com
+TXT data: ndw94prn3lpx1yxx2l4zpwdwtgkmq3y
+TXT data: 2zlvj3qlmgmy1tp35t8mryy5x96xt1f
+TXT data: v=spf1 ip4:203.190.240.0/21 ip6:2402:A000::/32 +a +mx include:ncfp.asia ~al
+TXT data: amazonses:p53imiFLhMG+5TWsV1PSka93lnPln9hGsd8w7bPuPSs
+TXT data: google-site-verification: toO-M7z8N9pd_-UGprreuoB14NgBpIj2JnRXT-5UT3
+TXT data: adobe-idp-site-verification=dc356b49491855c57347a075993d2c428096e98dc8f3c41d62dac7a41c2c087
+
+Domain: huanqiu.com
+TXT data: v=spf1 include:spf.mail.qq.com ~al
+
+Domain: discordapp.com
+TXT data: v=spf1 include:_spf.google.com include:mail.zendesk.com include:spf1.mailgun.org include:spf2.mailgun.org include:sendgrid.net include:3885857.spf06.hubspotemail.net ~al
+TXT data: google-site-verification=PmQRNDYVKwgF3tM6HulK5Fmmna3DSKklkjl-epmhpl
+TXT data: google-site-verification=jtVaxAcfspCN94ECrH12n9XJhdqO6Y2j2u3eh1XsAp
+TXT data: google-site-verification=Xjv2o-O6nc6AOOoTO1PNpyOFWyWMQ5It6b6XfGwsyc
+TXT data: google-site-verification=ihjYpERVTt6QLWL2IBBLsEZroHPjP3vVQHQG97oXZl
+TXT data: adobe-sign-verification=d19200aacd69c1b8e10cd1a5b47c91c
+TXT data: 5508A8F48
+TXT data: google-site-verification=27NMadvvj0pSQl1hkMaX3X5bwpjdFmE_FvX-MAgdLB
+
+Domain: yy.com
+TXT data: v=spf1 ip4:183.36.121.77 ip4:58.251.123.205 ip4:183.36.123.141 ip4:157.255.234.141 ip4:183.36.117.185 ip4:58.250.124.185 ip4:58.215.169.130 ip4:153.35.184.2 ip4:112.25.242.130 -al
+
+Domain: amazonaws.com
+TXT data: spf2.0/pra include:amazon.com ~al
+TXT data: v=spf1 include:amazon.com ~al
+
+Domain: google.com.sg
+TXT data: v=spf1 -al
+
+Domain: sogou.com
+TXT data: QYm6Ji0HooVQX+0F7mrEahj2siwlbodszFnnJiL7KL4
+TXT data: v=spf1 ip4:61.135.130.0/23 ip4:61.135.132.0/23 ip4:61.135.134.0/23 ip4:61.135.145.0/23 ip4:61.135.150.0/23 ip4:220.181.26.0/24 ip4:222.28.152.128/25 ip4:218.206.87.0/25 ip4:221.236.12.128 ip4:203.184.141.0/24 ip4:61.152.234.0/24 ~al
+
+a: 1072
+b: 475
+c: 1096
+d: 791
+e: 1207
+f: 840
+g: 430
+h: 153
+i: 1514
+j: 125
+k: 212
+l: 713
+m: 581
+n: 810
+o: 1078
+p: 687
+q: 145
+r: 466
+s: 721
+t: 597
+u: 414
+v: 447
+w: 159
+x: 162
+y: 168
+z: 177
+A: 147
+B: 122
+C: 115
+D: 135
+E: 122
+F: 131
+G: 108
+H: 103
+I: 109
+J: 82
+K: 98
+L: 96
+M: 131
+N: 114
+O: 107
+P: 124
+Q: 118
+R: 97
+S: 127
+T: 94
+U: 85
+V: 101
+W: 83
+X: 94
+Y: 89
+Z: 93
+0: 665
+1: 859
+2: 805
+3: 555
+4: 778
+5: 517
+6: 503
+7: 430
+8: 534
+9: 498
+/: 165
++: 35
+Using chars: abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789/+
+Characters counted: 24409
+Average character count: 381.390625
+Stdev:	468.175706771
+CV:	1.22754906933
