@@ -16,6 +16,8 @@ DOMAIN_MIN_AVG = 5
 # Maximum CV to count as random analysis failure
 DOMAIN_MAX_CV = 0.4
 
+prevReply = ''
+
 blocked_ips = []
 dns_servers = {}
 
@@ -96,9 +98,10 @@ def run_checks(dns):
     else:
         cv = 0
 
+    print("Average: "+str(average) + " CV: "+str(cv))
+   
     # Check for malicious data
     if average > DOMAIN_MIN_AVG and cv < DOMAIN_MAX_CV:
-        print("Average: "+str(average) + " CV: "+str(cv))
         print('Bad domain CV, DNS compromised')
         blocked_ips.append(dns.ip)
 
@@ -106,7 +109,7 @@ def run_checks(dns):
 def read(packet):
     """Records the packet's information and checks DNS servers validity
     """
-    global dns_servers
+    global dns_servers, prevReply
 
     # Convert the raw packet to a scapy compatible string
     scapy_pkt = IP(packet.get_payload())
@@ -135,7 +138,9 @@ def read(packet):
 
             # Remove everything after first '.' and total up the characters
             domain = re.sub(r'\..*', '', domain)
-            count_letters(packet_ip, domain)
+	    if prevReply != domain:
+                count_letters(packet_ip, domain)
+	    prevReply = domain
 
             # Verify this DNS server
             run_checks(dns_server)

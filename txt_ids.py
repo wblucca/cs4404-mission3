@@ -16,6 +16,8 @@ TXT_MIN_AVG = 3
 # Maximum CV to count as random analysis failure
 TXT_MAX_CV = 0.4
 
+prevReply = ''
+
 blocked_ips = []
 dns_servers = {}
 
@@ -96,9 +98,10 @@ def run_checks(dns):
     else:
         cv = 0
 
+    print("Average: "+str(average) + " CV: "+str(cv))
+    
     # Check for malicious data
     if average > TXT_MIN_AVG and cv < TXT_MAX_CV:
-        print("Average: "+str(average) + " CV: "+str(cv))
         print('Bad domain CV, DNS compromised')
         blocked_ips.append(dns.ip)
 
@@ -106,7 +109,7 @@ def run_checks(dns):
 def read(packet):
     """Records the packet's information and checks DNS servers validity
     """
-    global dns_servers
+    global dns_servers, prevReply
 
     # Convert the raw packet to a scapy compatible string
     scapy_pkt = IP(packet.get_payload())
@@ -134,8 +137,9 @@ def read(packet):
             print('[+] TXT: "' + str(record) + '"   IP: "' + str(packet_ip) + '"')
 
             # Remove everything after first '.' and total up the characters
-            count_letters(packet_ip, record)
-
+	    if record != prevReply:
+                count_letters(packet_ip, record)
+	    prevReply = record
             # Verify this DNS server
             run_checks(dns_server)
 
@@ -148,7 +152,6 @@ def read(packet):
         packet.drop()
     else:
         packet.accept()
-
 
 nfqueue = NetfilterQueue()
 def run_nfqueue():
