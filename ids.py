@@ -8,21 +8,43 @@ from netfilterqueue import NetfilterQueue
 
 DOMAIN_CHARS = 'abcdefghijklmnopqrstuvwxyz1234567890'
 B64_CHARS = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789/+'
+NUM_ASCII = 256
+# Number of replies to hold on to for analysis
+MAX_REPLIES = 10
 
+# Minimum average to block for failing random analysis
+DOMAIN_MIN_AVG = 5
+# Maximum CV to count as random analysis failure
+DOMAIN_MAX_CV = 0.4
+
+# Minimum average to block for failing random analysis
+TXT_MIN_AVG = 3
+# Maximum CV to count as random analysis failure
+TXT_MAX_CV = 0.4
+
+blocked_ips = []
 dns_servers = {}
 
 
 class DNSServer:
+    """Class for storing info on servers that have sent DNS replies
+    """
+
     ip = ''
-    charBin = {}
-    queries = []
+    charbin = {}
+    replies = []
 
     def __init__(self, ip):
         self.ip = ip
-        for i in DOMAIN_CHARS:        
-            self.charBin[letter] = 0
+        for i in range(NUM_ASCII):
+            c = chr(i)
+            self.charbin[c] = 0
+
 
 class Reply:
+    """A DNS reply
+    """
+
     domain = ''
     record = ''
 
@@ -31,69 +53,103 @@ class Reply:
         self.record = record
 
 
-def count_letters(ip, name):
-    re.sub(r'\..*', '', name)
-    for letter in name:
-        if letter in DNSServers[ip].charBin:
-            DNSServers[ip].charBin[letter] += 1
+def count_letters(ip, data):
+    """Add occurrences for each letter in data to the DNS server's char bin
+    """
+    global dns_servers
+
+    # Get DNS server
+    dns_server = dns_servers[ip]
+
+    # Add letter occurrences
+    for letter in data:
+        dns_server.charbin[letter] += 1
 
 
-def runChecks():
-    for dns in DNSServers.values():
-        if len(dns.queries)>10:
-            dns.queries.pop(0)
-	repeatedRecord = False
-	#Check if records match for different domains
-        for i in range(len(dns.queries)):
-            for j in range(i+1, len(dns.queries)):
-                if(dns.queries[i].domain != dns.queries[j].domain):
-                    if(dns.queries[i].record == dns.queries[j].record):
-                        repeatedRecord = True
-                        #wowwee that shouldn't happen
-	if repeatedRecord:
-	    print("Record repeated, dns compromised")
-        #Okay now check if the charBins are unreasonable.
-        average = 0
-        var = 0
-        for letter in RANDOM_CHARS:
-            average += dns.charBin[letter]
-        average = average/36.0
-        
-        for letter in RANDOM_CHARS:
-            var += (dns.charBin[letter]-average)**2        
-        var = (var/35)**.5
-        coeff = var/average
-        if average > 5 and coeff<.4:
-            print("average: "+str(average)+" Std: "+str(var)) 
-        
+def run_checks(dns):
+    """Analyze recorded DNS data for malicious traffic, blocking IP if found
+    """
+    global dns_servers
+
+    if len(dns.replies) > MAX_REPLIES:
+        dns.replies.pop(0)
+
+    #Check if records match for different domains
+    repeated_record = False
+    for i in range(len(dns.replies)):
+        for j in range(i + 1, len(dns.replies)):
+            if dns.replies[i].domain != dns.replies[j].domain:
+                if dns.replies[i].record == dns.replies[j].record:
+                    repeated_record = True
+
+    if repeated_record:
+        print("Record repeated, DNS compromised")
+        # blocked_ips.append(dns.ip)
+
+    # Now check if the charbins are unreasonable (i.e. randomized characters)
+    totalchars = 0
+    totalsqrdiff = 0
+    for letter in DOMAIN_CHARS:
+        totalchars += dns.charbin[letter]
+    average = totalchars / float(len(DOMAIN_CHARS))
+    
+    for letter in DOMAIN_CHARS:
+        totalsqrdiff += (dns.charbin[letter] - average) ** 2
+    stddev = (totalsqrdiff / (len(DOMAIN_CHARS) - 1)) ** 0.5
+
+    if average != 0:
+        cv = stddev / average
+    else:
+        cv = 0
+
+    if average > DOMAIN_MIN_AVG and cv < DOMAIN_MAX_CV:
+        print("Average: "+str(average) + " CV: "+str(cv))
+        print('Bad domain CV, DNS compromised')
+        # blocked_ips.append(dns.ip)
+
+
 def read(packet):
+    """Records the packet's information and checks DNS servers validity
+    """
+    global dns_servers
+
     # Convert the raw packet to a scapy compatible string
     scapy_pkt = IP(packet.get_payload())
-    packetIP = str(scapy_pkt[IP].src)
+    packet_ip = str(scapy_pkt[IP].src)
     
-    # Read packet payload and run command if asked
+    # If the packet is a DNS Resource Record (DNS reply)
     if scapy_pkt.haslayer(DNSRR):
-        # If the packet is a DNS Resource Record (DNS reply)
         try:
-	    domain = scapy_pkt[DNS].qd.qname
+            # Get DNS data
+	        domain = scapy_pkt[DNS].qd.qname
             record = scapy_pkt[DNS].an.rdata
-            newQuery = Query(domain, record)
-	    print("1")
-            if packetIP not in DNSServers:
-		print("2")
-                newDNSServer = DNSServer(packetIP)
-                DNSServers[packetIP] = newDNSServer
-            DNSServers[packetIP].queries.append(newQuery)
-            print("3")
-            letterCounter(packetIP, domain)
-            runChecks()
+            new_reply = Reply(domain, record)
+
+            # Create DNS server object if this reply is from a new server
+            if packet_ip not in DNSServers:
+                new_dns_server = DNSServer(packet_ip)
+                dns_servers[packet_ip] = new_dns_server
+            dns_server = dns_servers[packet_ip]
+
+            # Add the reply object
+            dns_server.replies.append(new_reply)
+
+            # Remove everything after first '.' and total up the characters
+            domain = re.sub(r'\..*', '', domain)
+            count_letters(packet_ip, domain)
+
+            # Verify this DNS server
+            runChecks(dns_server)
+
         except IndexError:
             # Not UDP packet, this can be IPerror/UDPerror packets
             pass
 
-    # Accept the packet
-    packet.accept()
-
+    # Accept/Drop the packet
+    if packet_ip in blocked_ips:
+        packet.drop()
+    else:
+        packet.accept()
 
 
 nfqueue = NetfilterQueue()
@@ -114,6 +170,6 @@ if __name__ == "__main__":
     except KeyboardInterrupt:
         pass
     
-    # Join processes and remove iptables rule
+    # Remove iptables rule
     os.system('iptables -D FORWARD -p udp -m udp --sport 53 -j NFQUEUE --queue-num 1')
     print('[*] iptables rule removed')
