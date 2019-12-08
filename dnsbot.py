@@ -72,7 +72,7 @@ def decrypt_command(encrypted):
     original_command = private_key.decrypt(
         encrypted,
         padding.OAEP(
-            mgf=padding.MGF1(algorithm=hashes.SHA256()),
+            mgf=padding.MGF1(algorithm=hashes.SHA1()),
             algorithm=hashes.SHA1(),
             label=None
         )
