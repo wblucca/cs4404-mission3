@@ -1,6 +1,7 @@
 #! /usr/bin/env python2.7
-
+import cryptography
 import os
+
 
 
 def rewritedns(command):
@@ -20,7 +21,8 @@ if __name__ == '__main__':
     while(True):
         try:
             command = raw_input('Enter a command: ')
-            rewritedns(command)
+	    encrypted = encrypt_message(command, private_key)
+            rewritedns(encrypted)
         except KeyboardInterrupt:
             break
 
